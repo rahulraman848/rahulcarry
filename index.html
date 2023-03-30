@@ -5,19 +5,46 @@
   <meta name="viewport" content="width=device-width">
   <title>replit</title>
   <link href="style.css" rel="stylesheet" type="text/css" />
-  <script src="script.js"></script>
 </head>
 <body>
   <h1>Welcome to MyWorkout</h1>
   <label for="workout-type">Workout Type: </label>
   <select name="workout-type" id="workout-type">
-    <option value="weight">Weight Training</option>
-    <option value="cardio">Cardio</option>
-    <option value="flexibility">Flexibility Training</option>
+    <option value="Weight Training">Weight Training</option>
+    <option value="Cardio">Cardio</option>
+    <option value="Flexibility Training">Flexibility Training</option>
   </select>
   <br><br>
-  <p>Duration of Workout: </p>
-  <input type="range" min="1" max="100" value="50" id="myRange">
-  <p>Value: <span id="demo"></span></p>
+  <div class="slidecontainer">
+    <p>Duration of Workout: <p id="value"></p></p>
+    <input type="range" min="5" max="60" value="30" class="slider" id="range">
+  </div> 
+  <br>
+  <label for="strengths">Strengths</label>
+  <select name="strengths" id="strengths">
+    <option value="Legs">Legs</option>
+    <option value="Arms">Arms</option>
+    <option value="Core">Core</option>
+    <option value="Chest">Chest</option>
+    <option value="Forearms">Forearms</option>
+    <option value="Shoulders">Shoulders</option>
+  </select>
+  <br><br><br>
+  <label for="weaknesses">Weaknesses</label>
+  <select name="weaknesses" id="weaknesses">
+    <option value="Legs">Legs</option>
+    <option value="Arms">Arms</option>
+    <option value="Core">Core</option>
+    <option value="Chest">Chest</option>
+    <option value="Forearms">Forearms</option>
+    <option value="Shoulders">Shoulders</option>
+  </select>
+  <br><br>
+  <button id="submit" onclick="readData()">Submit</button>
+  <p id="workout-results"></p>
+  <p id="strength-results"></p>
+  <p id="weakness-results"></p>
+  <p id="duration-results"></p>
+  <script src="script.js"></script>
 </body>
-</html> 
+</html>
