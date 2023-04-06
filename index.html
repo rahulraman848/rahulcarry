@@ -8,7 +8,7 @@
 </head>
 <body>
   <h1>Welcome to MyWorkout</h1>
-  <label for="workout-type">Workout Type: </label>
+  <label for="workout-type" id="workout-label">Workout Type: </label>
   <select name="workout-type" id="workout-type">
     <option value="Weight Training">Weight Training</option>
     <option value="Cardio">Cardio</option>
@@ -16,28 +16,26 @@
   </select>
   <br><br>
   <div class="slidecontainer">
-    <p>Duration of Workout: <p id="value"></p></p>
+    <p id="duration-label">Duration of Workout: <p id="value"></p></p>
     <input type="range" min="5" max="60" value="30" class="slider" id="range">
   </div> 
   <br>
-  <label for="strengths">Strengths</label>
+  <label for="strengths" id="strength-label">Strengths</label>
   <select name="strengths" id="strengths">
     <option value="Legs">Legs</option>
     <option value="Arms">Arms</option>
     <option value="Core">Core</option>
     <option value="Chest">Chest</option>
-    <option value="Forearms">Forearms</option>
-    <option value="Shoulders">Shoulders</option>
+    <option value="Forearms and Shoulders">Forearms/Shoulders</option>
   </select>
   <br><br><br>
-  <label for="weaknesses">Weaknesses</label>
+  <label for="weaknesses" id="weakness-label">Weaknesses</label>
   <select name="weaknesses" id="weaknesses">
     <option value="Legs">Legs</option>
     <option value="Arms">Arms</option>
     <option value="Core">Core</option>
     <option value="Chest">Chest</option>
-    <option value="Forearms">Forearms</option>
-    <option value="Shoulders">Shoulders</option>
+    <option value="Forearms and Shoulders">Forearms/Shoulders</option>
   </select>
   <br><br>
   <button id="submit" onclick="readData()">Submit</button>
@@ -45,6 +43,8 @@
   <p id="strength-results"></p>
   <p id="weakness-results"></p>
   <p id="duration-results"></p>
+  <p id="test"></p>
+  <p id="test2"></p>
   <script src="script.js"></script>
 </body>
 </html>
