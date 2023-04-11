@@ -5,13 +5,28 @@ const workoutType = document.getElementById("workout-type")
 const strengths = document.getElementById("strengths")
 const weakness = document.getElementById("weaknesses")
 
+const workoutLabel = document.getElementById("workout-label");
+const durationLabel = document.getElementById("duration-label");
+const strengthLabel = document.getElementById("strength-label");
+const weaknessLabel = document.getElementById("weakness-label");
+const submitButton = document.getElementById("submit");
+
 const workoutResults = document.getElementById("workout-results")
 const strengthResults = document.getElementById("strength-results")
 const weaknessResults = document.getElementById("weakness-results")
 const durationResults = document.getElementById("duration-results");
 
-const test = document.getElementById("test");
-const test2 = document.getElementById("test2");
+const firstWeakness = document.getElementById("firstWeakness");
+const firstRest = document.getElementById("firstRest");
+const secondWeakness = document.getElementById("secondWeakness");
+const secondRest = document.getElementById("secondRest");
+const firstStrength = document.getElementById("firstStrength");
+const thirdRest = document.getElementById("thirdRest");
+const thirdWeakness = document.getElementById("thirdWeakness");
+const fourthRest = document.getElementById("fourthRest");
+const secondStrength = document.getElementById("secondStrength");
+const cooldown = document.getElementById("cooldown");
+const howManyTimes = document.getElementById("howManyTimes");
 
 // Legs, Arms, Core, Chest, Forearms/Shoulders
 let weightTrainingExercises = [
@@ -42,42 +57,163 @@ slider.oninput = function() {
 
 function readData() {
   if(strengths.value==weakness.value){
-    test.textContent = `YOUR STRENGTHS AND WEAKNESSES ARE THE SAME!! TRY AGAIN!!!!!!!`;
+    firstWeakness.textContent = `YOUR STRENGTHS AND WEAKNESSES ARE THE SAME!! TRY AGAIN!!!!!!!`;
   }
   else{
     let workoutValue = workoutType.value;
     workoutResults.textContent = `Workout you've chosen: ${workoutValue}`;
+    //workoutType.style.visibility = "hidden";
+    //workoutLabel.style.visibility = "hidden";
 
     let strengthValue = strengths.value;
     strengthResults.textContent = `Your workout strength: ${strengthValue}`;
+    //strengths.style.visibility = "hidden";
+    //strengthLabel.style.visibility = "hidden";
 
     let weaknessValue = weakness.value;
     weaknessResults.textContent = `Your workout weakness: ${weaknessValue}`;
+    //weakness.style.visibility = "hidden";
+    //weaknessLabel.style.visibility = "hidden";
 
     let durationValue = output.innerHTML;
     durationResults.textContent = `Length of your workout: ${durationValue} minutes`;
+    //output.style.visibility = "hidden";
+    //slider.style.visibility = "hidden";
+    //durationLabel.style.visibility = "hidden";
+
+    submitButton.style.visibility = "hidden";
 
     if(strengthValue != weaknessValue) {
       if(workoutValue=='Weight Training') {
-        if(weaknessValue == "Legs") {test.textContent = `Random Weakness Exercise: ${getRandomWorkout(weightTrainingExercises, 0)}`}
-        if(weaknessValue == "Arms") {test.textContent = `Random Weakness Exercise: ${getRandomWorkout(weightTrainingExercises, 1)}`}
-        if(weaknessValue == "Core") {test.textContent = `Random Weakness Exercise: ${getRandomWorkout(weightTrainingExercises, 2)}`}
-        if(weaknessValue == "Chest") {test.textContent = `Random Weakness Exercise: ${getRandomWorkout(weightTrainingExercises, 3)}`}
-        if(weaknessValue == "Forearms and Shoulders") {test.textContent = `Weakness Exercise: ${getRandomWorkout(weightTrainingExercises, 4)}`}
+        if(weaknessValue == "Legs") {firstWeakness.textContent = `Weakness Exercise 1: ${getRandomWorkout(weightTrainingExercises, 0)} (30s)`}
+        if(weaknessValue == "Arms") {firstWeakness.textContent = `Weakness Exercise 1: ${getRandomWorkout(weightTrainingExercises, 1)} (30s)`}
+        if(weaknessValue == "Core") {firstWeakness.textContent = `Weakness Exercise 1: ${getRandomWorkout(weightTrainingExercises, 2)}(30s)`}
+        if(weaknessValue == "Chest") {firstWeakness.textContent = `Weakness Exercise 1: ${getRandomWorkout(weightTrainingExercises, 3)}(30s)`}
+        if(weaknessValue == "Forearms and Shoulders") {firstWeakness.textContent = `Weakness Exercise 1: ${getRandomWorkout(weightTrainingExercises, 4)} (30s)`}
+
+        firstRest.textContent = 'Rest (10s)';
+
+        if(weaknessValue == "Legs") {secondWeakness.textContent = `Weakness Exercise 2: ${getRandomWorkout(weightTrainingExercises, 0)}(30s)`}
+        if(weaknessValue == "Arms") {secondWeakness.textContent = `Weakness Exercise 2: ${getRandomWorkout(weightTrainingExercises, 1)}(30s)`}
+        if(weaknessValue == "Core") {secondWeakness.textContent = `Weakness Exercise 2: ${getRandomWorkout(weightTrainingExercises, 2)}(30s)`}
+        if(weaknessValue == "Chest") {secondWeakness.textContent = `Weakness Exercise 2: ${getRandomWorkout(weightTrainingExercises, 3)}(30s)`}
+        if(weaknessValue == "Forearms and Shoulders") {secondWeakness.textContent = `Weakness Exercise 2: ${getRandomWorkout(weightTrainingExercises, 4)}(30s)`}
+
+        secondRest.textContent = 'Rest (10s)';
+
+        if(strengthValue == "Legs") {firstStrength.textContent = `Strength Exercise 1: ${getRandomWorkout(weightTrainingExercises, 0)} (60s)`}
+        if(strengthValue == "Arms") {firstStrength.textContent = `Strength Exercise 1: ${getRandomWorkout(weightTrainingExercises, 1)}(60s)`}
+        if(strengthValue == "Core") {firstStrength.textContent = `Strength Exercise 1: ${getRandomWorkout(weightTrainingExercises, 2)}(60s)`}
+        if(strengthValue == "Chest") {firstStrength.textContent = `Strength Exercise 1: ${getRandomWorkout(weightTrainingExercises, 3)}(60s)`}
+        if(strengthValue == "Forearms and Shoulders") {firstStrength.textContent = `Strength Exercise 1: ${getRandomWorkout(weightTrainingExercises, 4)}(60s)`}
+
+        thirdRest.textContent = 'Rest (5s)';
+
+        if(weaknessValue == "Legs") {thirdWeakness.textContent = `Weakness Exercise 3: ${getRandomWorkout(weightTrainingExercises, 0)}(30s)`}
+        if(weaknessValue == "Arms") {thirdWeakness.textContent = `Weakness Exercise 3: ${getRandomWorkout(weightTrainingExercises, 1)}(30s)`}
+        if(weaknessValue == "Core") {thirdWeakness.textContent = `Weakness Exercise 3: ${getRandomWorkout(weightTrainingExercises, 2)}(30s)`}
+        if(weaknessValue == "Chest") {thirdWeakness.textContent = `Weakness Exercise 3: ${getRandomWorkout(weightTrainingExercises, 3)}(30s)`}
+        if(weaknessValue == "Forearms and Shoulders") {thirdWeakness.textContent = `Weakness Exercise 3: ${getRandomWorkout(weightTrainingExercises, 4)}(30s)`}
+
+        fourthRest.textContent = 'Rest (10s)';
+
+        if(strengthValue == "Legs") {secondStrength.textContent = `Strength Exercise 2: ${getRandomWorkout(weightTrainingExercises, 0)} (60s)`}
+        if(strengthValue == "Arms") {secondStrength.textContent = `Strength Exercise 2: ${getRandomWorkout(weightTrainingExercises, 1)}(60s)`}
+        if(strengthValue == "Core") {secondStrength.textContent = `Strength Exercise 2: ${getRandomWorkout(weightTrainingExercises, 2)}(60s)`}
+        if(strengthValue == "Chest") {secondStrength.textContent = `Strength Exercise 2: ${getRandomWorkout(weightTrainingExercises, 3)}(60s)`}
+        if(strengthValue == "Forearms and Shoulders") {secondStrength.textContent = `Strength Exercise 2: ${getRandomWorkout(weightTrainingExercises, 4)}(60s)`}
+
+        cooldown.textContent = 'Cooldown before we repeat (25s)'
+
+        howManyTimes.textContent = `We are repeating this a total of ${durationValue/5} times`;
       }
       if(workoutValue=='Cardio') {
-        if(weaknessValue == "Legs") {test.textContent = `Random Weakness Exercise: ${getRandomWorkout(cardio, 0)}`}
-        if(weaknessValue == "Arms") {test.textContent = `Random Weakness Exercise: ${getRandomWorkout(cardio, 1)}`}
-        if(weaknessValue == "Core") {test.textContent = `Random Weakness Exercise: ${getRandomWorkout(cardio, 2)}`}
-        if(weaknessValue == "Chest") {test.textContent = `Random Weakness Exercise: ${getRandomWorkout(cardio, 3)}`}
-        if(weaknessValue == "Forearms and Shoulders") {test.textContent = `Weakness Exercise: ${getRandomWorkout(cardio, 4)}`}
+        if(weaknessValue == "Legs") {firstWeakness.textContent = `Weakness Exercise 1: ${getRandomWorkout(cardio, 0)}(30s)`}
+        if(weaknessValue == "Arms") {firstWeakness.textContent = `Weakness Exercise 1: ${getRandomWorkout(cardio, 1)}(30s)`}
+        if(weaknessValue == "Core") {firstWeakness.textContent = `Weakness Exercise 1: ${getRandomWorkout(cardio, 2)}(30s)`}
+        if(weaknessValue == "Chest") {firstWeakness.textContent = `Weakness Exercise 1: ${getRandomWorkout(cardio, 3)}(30s)`}
+        if(weaknessValue == "Forearms and Shoulders") {firstWeakness.textContent = `Weakness Exercise 1: ${getRandomWorkout(cardio, 4)}(30s)`}
+
+        firstRest.textContent = 'Rest (10s)';
+
+        if(weaknessValue == "Legs") {secondWeakness.textContent = `Weakness Exercise 2: ${getRandomWorkout(cardio, 0)}(30s)`}
+        if(weaknessValue == "Arms") {secondWeakness.textContent = `Weakness Exercise 2: ${getRandomWorkout(cardio, 1)}(30s)`}
+        if(weaknessValue == "Core") {secondWeakness.textContent = `Weakness Exercise 2: ${getRandomWorkout(cardio, 2)}(30s)`}
+        if(weaknessValue == "Chest") {secondWeakness.textContent = `Weakness Exercise 2: ${getRandomWorkout(cardio, 3)}(30s)`}
+        if(weaknessValue == "Forearms and Shoulders") {secondWeakness.textContent = `Weakness Exercise 2: ${getRandomWorkout(cardio, 4)}(30s)`}
+
+        secondRest.textContent = 'Rest (10s)';
+
+        if(strengthValue == "Legs") {firstStrength.textContent = `Strength Exercise 1: ${getRandomWorkout(cardio, 0)}(60s)`}
+        if(strengthValue == "Arms") {firstStrength.textContent = `Strength Exercise 1: ${getRandomWorkout(cardio, 1)}(60s)`}
+        if(strengthValue == "Core") {firstStrength.textContent = `Strength Exercise 1: ${getRandomWorkout(cardio, 2)}(60s)`}
+        if(strengthValue == "Chest") {firstStrength.textContent = `Strength Exercise 1: ${getRandomWorkout(cardio, 3)}(60s)`}
+        if(strengthValue == "Forearms and Shoulders") {firstStrength.textContent = `Strength Exercise 1: ${getRandomWorkout(cardio, 4)}(60s)`}
+
+        thirdRest.textContent = 'Rest (10s)'
+
+        if(weaknessValue == "Legs") {thirdWeakness.textContent = `Weakness Exercise 3: ${getRandomWorkout(cardio, 0)}(30s)`}
+        if(weaknessValue == "Arms") {thirdWeakness.textContent = `Weakness Exercise 3: ${getRandomWorkout(cardio, 1)}(30s)`}
+        if(weaknessValue == "Core") {thirdWeakness.textContent = `Weakness Exercise 3: ${getRandomWorkout(cardio, 2)}(30s)`}
+        if(weaknessValue == "Chest") {thirdWeakness.textContent = `Weakness Exercise 3: ${getRandomWorkout(cardio, 3)}(30s)`}
+        if(weaknessValue == "Forearms and Shoulders") {thirdWeakness.textContent = `Weakness Exercise 3: ${getRandomWorkout(cardio, 4)}(30s)`}
+
+        fourthRest.textContent = 'Rest (10s)';
+
+        if(strengthValue == "Legs") {secondStrength.textContent = `Strength Exercise 2: ${getRandomWorkout(cardio, 0)}(60s)`}
+        if(strengthValue == "Arms") {secondStrength.textContent = `Strength Exercise 2: ${getRandomWorkout(cardio, 1)}(60s)`}
+        if(strengthValue == "Core") {secondStrength.textContent = `Strength Exercise 2: ${getRandomWorkout(cardio, 2)}(60s)`}
+        if(strengthValue == "Chest") {secondStrength.textContent = `Strength Exercise 2: ${getRandomWorkout(cardio, 3)}(60s)`}
+        if(strengthValue == "Forearms and Shoulders") {secondStrength.textContent = `Strength Exercise 2: ${getRandomWorkout(cardio, 4)}(60s)`}
+
+        cooldown.textContent = 'Cooldown before we repeat (25s)'
+
+        howManyTimes.textContent = `We are repeating this a total of ${durationValue/5} times`;
+        
       }
       if(workoutValue=='Flexibility Training') {
-        if(weaknessValue == "Legs") {test.textContent = `Random Weakness Exercise: ${getRandomWorkout(flexibilityTrainingExercise, 0)}`}
-        if(weaknessValue == "Arms") {test.textContent = `Random Weakness Exercise: ${getRandomWorkout(flexibilityTrainingExercise, 1)}`}
-        if(weaknessValue == "Core") {test.textContent = `Random Weakness Exercise: ${getRandomWorkout(flexibilityTrainingExercise, 2)}`}
-        if(weaknessValue == "Chest") {test.textContent = `Random Weakness Exercise: ${getRandomWorkout(flexibilityTrainingExercise, 3)}`}
-        if(weaknessValue == "Forearms and Shoulders") {test.textContent = `Random Weakness Exercise: ${getRandomWorkout(flexibilityTrainingExercise, 4)}`}
+        if(weaknessValue == "Legs") {firstWeakness.textContent = `Weakness Exercise 1: ${getRandomWorkout(flexibilityTrainingExercise, 0)}(30s)`}
+        if(weaknessValue == "Arms") {firstWeakness.textContent = `Weakness Exercise 1: ${getRandomWorkout(flexibilityTrainingExercise, 1)}(30s)`}
+        if(weaknessValue == "Core") {firstWeakness.textContent = `Weakness Exercise 1: ${getRandomWorkout(flexibilityTrainingExercise, 2)}(30s)`}
+        if(weaknessValue == "Chest") {firstWeakness.textContent = `Weakness Exercise 1: ${getRandomWorkout(flexibilityTrainingExercise, 3)}(30s)`}
+        if(weaknessValue == "Forearms and Shoulders") {firstWeakness.textContent = `Weakness Exercise 1: ${getRandomWorkout(flexibilityTrainingExercise, 4)}(30s)`}
+
+        firstRest.textContent = 'Rest (10s)';
+
+        if(weaknessValue == "Legs") {secondWeakness.textContent = `Weakness Exercise 2: ${getRandomWorkout(flexibilityTrainingExercise, 0)}(30s)`}
+        if(weaknessValue == "Arms") {secondWeakness.textContent = `Weakness Exercise 2: ${getRandomWorkout(flexibilityTrainingExercise, 1)}(30s)`}
+        if(weaknessValue == "Core") {secondWeakness.textContent = `Weakness Exercise 2: ${getRandomWorkout(flexibilityTrainingExercise, 2)}(30s)`}
+        if(weaknessValue == "Chest") {secondWeakness.textContent = `Weakness Exercise 2: ${getRandomWorkout(flexibilityTrainingExercise, 3)}(30s)`}
+        if(weaknessValue == "Forearms and Shoulders") {secondWeakness.textContent = `Weakness Exercise 2: ${getRandomWorkout(flexibilityTrainingExercise, 4)}(30s)`}
+
+        secondRest.textContent = 'Rest (10s)';
+
+        if(strengthValue == "Legs") {firstStrength.textContent = `Strength Exercise 1: ${getRandomWorkout(flexibilityTrainingExercise, 0)}(60s)`}
+        if(strengthValue == "Arms") {firstStrength.textContent = `Strength Exercise 1: ${getRandomWorkout(flexibilityTrainingExercise, 1)}(60s)`}
+        if(strengthValue == "Core") {firstStrength.textContent = `Strength Exericse 1: ${getRandomWorkout(flexibilityTrainingExercise, 2)}(60s)`}
+        if(strengthValue == "Chest") {firstStrength.textContent = `Strength Exercise 1: ${getRandomWorkout(flexibilityTrainingExercise, 3)}(60s)`}
+        if(strengthValue == "Forearms and Shoulders") {firstStrength.textContent = `Strength Exercise 1: ${getRandomWorkout(flexibilityTrainingExercise, 4)}(60s)`}
+
+        thirdRest.textContent = 'Rest (5s)';
+        
+        if(weaknessValue == "Legs") {thirdWeakness.textContent = `Weakness Exercise 3: ${getRandomWorkout(flexibilityTrainingExercise, 0)}(30s)`}
+        if(weaknessValue == "Arms") {thirdWeakness.textContent = `Weakness Exercise 3: ${getRandomWorkout(flexibilityTrainingExercise, 1)}(30s)`}
+        if(weaknessValue == "Core") {thirdWeakness.textContent = `Weakness Exercise 3: ${getRandomWorkout(flexibilityTrainingExercise, 2)}(30s)`}
+        if(weaknessValue == "Chest") {thirdWeakness.textContent = `Weakness Exercise 3: ${getRandomWorkout(flexibilityTrainingExercise, 3)}(30s)`}
+        if(weaknessValue == "Forearms and Shoulders") {thirdWeakness.textContent = `Weakness Exercise 3: ${getRandomWorkout(flexibilityTrainingExercise, 4)}(30s)`}
+
+        fourthRest.textContent = 'Rest (10s)'
+
+        if(strengthValue == "Legs") {secondStrength.textContent = `Strength Exercise 2: ${getRandomWorkout(flexibilityTrainingExercise, 0)}(60s)`}
+        if(strengthValue == "Arms") {secondStrength.textContent = `Strength Exercise 2: ${getRandomWorkout(flexibilityTrainingExercise, 1)}(60s)`}
+        if(strengthValue == "Core") {secondStrength.textContent = `Strength Exericse 2: ${getRandomWorkout(flexibilityTrainingExercise, 2)}(60s)`}
+        if(strengthValue == "Chest") {secondStrength.textContent = `Strength Exercise 2: ${getRandomWorkout(flexibilityTrainingExercise, 3)}(60s)`}
+        if(strengthValue == "Forearms and Shoulders") {secondStrength.textContent = `Strength Exercise 2: ${getRandomWorkout(flexibilityTrainingExercise, 4)}(60s)`}
+
+        cooldown.textContent = 'Cooldown before we repeat (25s)'
+
+        howManyTimes.textContent = `We are repeating this a total of ${durationValue/5} times`;
+
       }
     }
   }
