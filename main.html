@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>MyWorkout</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+  <link rel="icon" href="bell.png">
+</head>
+<body>
+  <p id="timer"></p>
+  <div class="forms" align="center">
+    <h1 style="text-align: center;">Welcome to MyWorkout</h1>
+    <label for="workout-type" id="workout-label" style="text-align:center">Workout Type: </label>
+    <select name="workout-type" id="workout-type" style="text-align:center">
+      <option style="text-align:center" value="Weight Training">Weight Training</option>
+      <option style="text-align:center" value="Cardio">Cardio</option>
+      <option style="text-align:center" value="Flexibility Training">Flexibility Training</option>
+    </select>
+    <br><br>
+    <div class="slidecontainer" style="text-align:center">
+      <p id="duration-label">Duration of Workout: <p id="value"> <p id="minutes-label">minutes</p></p></p>
+      <input type="range" min="5" max="60" value="30" step="5" class="slider" id="range">
+    </div> 
+    <br>
+    <label for="strengths" id="strength-label" style="text-align:center">Strengths</label>
+    <select name="strengths" id="strengths" style="text-align:center">
+      <option style="text-align:center" value="Legs">Legs</option>
+      <option style="text-align:center" value="Arms">Arms</option>
+      <option style="text-align:center" value="Core">Core</option>
+      <option style="text-align:center" value="Chest">Chest</option>
+      <option style="text-align:center" value="Forearms and Shoulders">Forearms/Shoulders</option>
+    </select>
+    <br><br><br>
+    <label style="text-align:center" for="weaknesses" id="weakness-label">Weaknesses</label>
+    <select style="text-align:center" name="weaknesses" id="weaknesses">
+      <option style="text-align:center" value="Legs">Legs</option>
+      <option style="text-align:center" value="Arms">Arms</option>
+      <option style="text-align:center" value="Core">Core</option>
+      <option style="text-align:center" value="Chest">Chest</option>
+      <option style="text-align:center" value="Forearms and Shoulders">Forearms/Shoulders</option>
+    </select>
+    <br><br>
+    <button style="text-align:center" id="submit" onclick="readData()">Begin Your Random Workout</button>
+    <p id="error-message"></p>
+
+    <div class="workouts">
+      <div class="start-text">
+        <p id="getready">GET READY! <p id="countdown"></p></p>
+      </div>
+      <p id="firstWeakness"></p>
+      <p id="firstRest"></p>
+      <p id="secondWeakness"></p>
+      <p id="secondRest"></p>
+      <p id="firstStrength"></p>
+      <p id="thirdRest"></p>
+      <p id="thirdWeakness"></p>
+      <p id="fourthRest"></p>
+      <p id="secondStrength"></p>
+      <p id="cooldown"></p>
+      <p id="howManyTimes"></p>
+      <p id="workout-complete">WORKOUT COMPLETE! WELL DONE!</p>
+    </div>
+  </div>  
+  <div class="results">
+    <p style="text-align:center" id="workout-results"></p>
+    <p style="text-align:center" id="strength-results"></p>
+    <p style="text-align:center" id="weakness-results"></p>
+    <p style="text-align:center" id="duration-results"></p>
+  </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>

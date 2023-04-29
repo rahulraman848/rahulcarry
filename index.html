@@ -1,61 +1,21 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>replit</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+    <link rel="icon" href="bell.png">
+    <title>MyWorkout</title>
 </head>
 <body>
-  <h1>Welcome to MyWorkout</h1>
-  <label for="workout-type" id="workout-label">Workout Type: </label>
-  <select name="workout-type" id="workout-type">
-    <option value="Weight Training">Weight Training</option>
-    <option value="Cardio">Cardio</option>
-    <option value="Flexibility Training">Flexibility Training</option>
-  </select>
-  <br><br>
-  <div class="slidecontainer">
-    <p id="duration-label">Duration of Workout: <p id="value"></p></p>
-    <input type="range" min="5" max="60" value="30" step="5" class="slider" id="range">
-  </div> 
-  <br>
-  <label for="strengths" id="strength-label">Strengths</label>
-  <select name="strengths" id="strengths">
-    <option value="Legs">Legs</option>
-    <option value="Arms">Arms</option>
-    <option value="Core">Core</option>
-    <option value="Chest">Chest</option>
-    <option value="Forearms and Shoulders">Forearms/Shoulders</option>
-  </select>
-  <br><br><br>
-  <label for="weaknesses" id="weakness-label">Weaknesses</label>
-  <select name="weaknesses" id="weaknesses">
-    <option value="Legs">Legs</option>
-    <option value="Arms">Arms</option>
-    <option value="Core">Core</option>
-    <option value="Chest">Chest</option>
-    <option value="Forearms and Shoulders">Forearms/Shoulders</option>
-  </select>
-  <br><br>
-  <button id="submit" onclick="readData()">Submit</button>
-  <p id="workout-results"></p>
-  <p id="strength-results"></p>
-  <p id="weakness-results"></p>
-  <p id="duration-results"></p>
-
-  <p id="firstWeakness"></p>
-  <p id="firstRest"></p>
-  <p id="secondWeakness"></p>
-  <p id="secondRest"></p>
-  <p id="firstStrength"></p>
-  <p id="thirdRest"></p>
-  <p id="thirdWeakness"></p>
-  <p id="fourthRest"></p>
-  <p id="secondStrength"></p>
-  <p id="cooldown"></p>
-  <p id="howManyTimes"></p>
-
-  <script src="script.js"></script>
+    <h1 style="text-align:center">Welcome to MyWorkout </h1>
+    <img id="logo" src="bell.png">
+    <div class="equipment">
+        <h3>Equipment you might need: Dumbbells, Bench, Yoga Mat, Barbell, Bands</h3>
+    </div>
+    <button id="get-started">
+        <a href="main.html">Get Started</a>
+    </button>
 </body>
 </html>
